@@ -1,3 +1,11 @@
+Linux kernel - Multiplexed virtual TTYs using Consistent Overhead Byte Stuffing
+===============================================================================
+Fork of Linux with a a module that can instantiate multiple virtual TTYs
+that get multiplexed over a single (probably physical) TTY using COBS.
+This can be useful if you want a console, printk output, and kgdb connection
+but only have one TTY, like is the case when using xHCI DbC for kernel
+development and debugging.
+
 Linux kernel
 ============
 
