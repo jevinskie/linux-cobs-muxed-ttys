@@ -32,16 +32,10 @@ static int __init cobs_test_init(void)
 {
 	int res = 0;
 	printk(KERN_DEBUG "COBS test module loading\n");
-#if !IS_BUILTIN(CONFIG_COBS)
-	if (request_module("cobs")) {
-		printk(KERN_ERR "COBS test module failed to load COBS module\n");
-		res = -4;
-		goto done;
-	}
-#endif
+
 	res -= cobs_encode_test();
 	res -= 2 * cobs_decode_test();
-done:
+
 	printk(KERN_DEBUG "COBS test module result: %d\n", res);
 	// 0 = pass
 	// -1 = encode failed, decode passed
